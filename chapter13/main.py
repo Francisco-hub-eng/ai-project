@@ -25,3 +25,10 @@ sess_50 = rt.InferenceSession("acquisition_model_50.onnx",
 sess_90 = rt.InferenceSession("acquisition_model_90.onnx",
                               providers=["CPUExecutionProvider"])
 
+# Get the input and output names of the model
+input_name_10 = sess_10.get_inputs()[0].name
+label_name_10 = sess_10.get_outputs()[0].name
+input_name_50 = sess_50.get_inputs()[0].name
+label_name_50 = sess_50.get_outputs()[0].name
+input_name_90 = sess_90.get_inputs()[0].name
+label_name_90 = sess_90.get_outputs()[0].name
