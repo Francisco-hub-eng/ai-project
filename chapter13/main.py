@@ -76,4 +76,4 @@ def predict(features: FantasyAcquisitionFeatures):
     # Return prediction as a Pydantic response model
     return PredictionOutput(winning_bid_10th_percentile=round(float(pred_onx_10[0]), 2),
                             winning_bid_50th_percentile=round(float(pred_onx_50[0]), 2),
-                            winning_bid_90th_percentile=round(float(pred_onx_90)[0], 2))
+                            winning_bid_90th_percentile=round(float(pred_onx_90[0]), 2))
