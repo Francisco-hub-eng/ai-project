@@ -17,3 +17,11 @@ Get information about health of the API
 Get predictions of player acquisition cost.
 """
 
+# Load the ONNX model
+sess_10 = rt.InferenceSession("acquisition_model_10.onnx",
+                              providers=["CPUExecutionProvider"])
+sess_50 = rt.InferenceSession("acquisition_model_50.onnx",
+                              providers=["CPUExecutionProvider"])
+sess_90 = rt.InferenceSession("acquisition_model_90.onnx",
+                              providers=["CPUExecutionProvider"])
+
