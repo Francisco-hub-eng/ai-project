@@ -34,4 +34,8 @@ class HealthCheckTool(BaseTool):
         health_check_response = local_swc_client.get_health_check()
         return health_check_response.text
 
-class     
+class LeaguesInput(BaseModel):
+    league_name: Optional[str] = Field(
+        default = None,
+        description="league name. Leave blank or None to get all leagues."
+    )    
