@@ -91,4 +91,7 @@ class ListTeamsTool(BaseTool):
         )
         return list_teams_response
     
-class 
+class SportsWorldCentralToolkit(BaseToolkit):
+    def get_tools(self) -> List[BaseTool]:
+        """Return the list of tools in the toolkit."""
+        return [HealthCheckTool(), ListLeaguesTool(), ListTeamsTool()]
