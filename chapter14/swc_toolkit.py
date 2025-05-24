@@ -38,4 +38,11 @@ class LeaguesInput(BaseModel):
     league_name: Optional[str] = Field(
         default = None,
         description="league name. Leave blank or None to get all leagues."
-    )    
+    )
+
+class ListLeaguesTool(BaseTool):
+    name: str = "ListLeagues"
+    description: str = "get a list of leagues from SportsWorldCentral. Leagues contain teams if they are present."
+    args_schema: Type[LeaguesInput] = LeaguesInput
+    return_direct: bool = False
+    
