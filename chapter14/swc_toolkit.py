@@ -18,3 +18,20 @@ except ImportError:
 config = SWCConfig(backoff=False)
 local_swc_client = SWCClient(config)
 
+class HealthCheckInput(BaseModel):
+    pass
+
+class HealthCheckTool(BaseTool):
+    name: str = "HealthCheck"
+    description: str = "useful to check if the API is running before you make other calls"
+    args_schema: Type[HealthCheckInput] = HealthCheckInput
+    return_direct: bool = False
+
+    def _run(
+            self, run_manager: Optional[CallbackManagerForToolRun] = None
+    ) -> str:
+        """Use the tool to check if the API is runnning."""
+        health_check_response = local_swc_client.get_health_check()
+        return health_check_response.text
+
+class     
