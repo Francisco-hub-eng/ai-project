@@ -56,3 +56,18 @@ class ListLeaguesTool(BaseTool):
             league_name=league_name
         )
         return list_leagues_response
+
+class TeamsInput(BaseModel):
+    team_name: Optional[str] = Field(
+        default=None,
+        description="Name of the team to search for. Leave blank or None to get all teams."
+    )
+    league_id: Optional[int] = Field(
+        default=None,
+        description=(
+            "League ID from a league. You must provide a numerical League ID"
+            "Leave blank or None to get teams from all leagues."
+        )
+    )
+
+class ListTeamsTool
