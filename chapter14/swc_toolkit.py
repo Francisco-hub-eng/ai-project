@@ -45,4 +45,14 @@ class ListLeaguesTool(BaseTool):
     description: str = "get a list of leagues from SportsWorldCentral. Leagues contain teams if they are present."
     args_schema: Type[LeaguesInput] = LeaguesInput
     return_direct: bool = False
-    
+
+    def _run(
+            self, league_name: Optional[str] = None,
+            run_manager: Optional[CallbackManagerForToolRun] = None
+    ) -> List[League]:
+        """Use the tool to get a list of leagues from SportsWorldCentral."""
+        # Call the API with league_name, which could be None
+        list_leagues_response= local_swc_client.list_leagues(
+            league_name=league_name
+        )
+        return list_leagues_response
